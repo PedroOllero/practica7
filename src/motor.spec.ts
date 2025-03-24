@@ -1,4 +1,4 @@
-import { addTwo, gameHandler } from "./motor";
+import { addTwo, gameHandler, getValueHandler } from "./motor";
 import { vi } from "vitest";
 import * as modelo from "./modelo";
 
@@ -85,5 +85,18 @@ describe("addTwo", () => {
 
     // Assert
     expect(resultado).toBe(12);
+  });
+});
+
+describe("addTwo", () => {
+  it("Si el numero aleatorio es mayor de 5, suma 2", () => {
+    // Arrange
+    let random = 10
+    vi.spyOn(modelo, "randomNum", "get").mockReturnValue(random);
+    // Act
+    const resultado = getValueHandler(random)
+
+    // Assert
+    expect(resultado).toBe(0.5);
   });
 });
