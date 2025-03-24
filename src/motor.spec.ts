@@ -88,8 +88,8 @@ describe("addTwo", () => {
   });
 });
 
-describe("addTwo", () => {
-  it("Si el numero aleatorio es mayor de 5, suma 2", () => {
+describe("getValueHandler", () => {
+  it("Si la carta que se recibe es mayor de 10, su valor 0.5", () => {
     // Arrange
     let random = 10
     vi.spyOn(modelo, "randomNum", "get").mockReturnValue(random);
@@ -98,5 +98,18 @@ describe("addTwo", () => {
 
     // Assert
     expect(resultado).toBe(0.5);
+  });
+});
+
+describe("getValueHandler", () => {
+  it("Si la carta que se recibe es es menor de 10, su valor del mismo número que la carta", () => {
+    // Arrange
+    let random = 4
+    vi.spyOn(modelo, "randomNum", "get").mockReturnValue(random);
+    // Act
+    const resultado = getValueHandler(random)
+
+    // Assert
+    expect(resultado).toBe(4);
   });
 });
